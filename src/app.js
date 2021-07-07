@@ -1,4 +1,5 @@
-import logger from 'morgan';
+import morgan from 'morgan';
+import helmet from 'helmet';
 import express from 'express';
 import cookieParser from 'cookie-parser';
 // routes
@@ -7,15 +8,12 @@ import indexRouter from './routes';
 const app = express();
 
 // attach utilities to application
-app.use(logger('dev'));
+app.use(morgan('tiny'));
+app.use(helmet());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-app.use('/v1', indexRouter);
-
-app.use((err, req, res, next) => {
-  res.status(400).json({ error: err.stack });
-});
+app.use('/api/v1', indexRouter);
 
 export default app;

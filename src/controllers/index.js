@@ -1,4 +1,4 @@
-// export everything from homeController.js
-export * from './homeController';
-export * from './authController';
-export * from './messagesController';
+// export everything from home.controller.js
+export * from './home.controller';
+export * from './auth.controller';
+export * from './messages.controller';

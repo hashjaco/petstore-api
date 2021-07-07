@@ -1,11 +1,12 @@
 import express from 'express';
-import { getToken, indexPage, getMessages, addMessage } from '../controllers';
-import { modifyMessage, performAsyncAction } from '../middleware';
+import { indexPage } from '../controllers';
+import authRouter from './auth.routes';
+import petsRouter from './pets.routes';
 
 const indexRouter = express.Router();
 indexRouter.get('/', indexPage);
-indexRouter.get('/auth', getToken);
-indexRouter.get('/messages', getMessages);
-indexRouter.post('/messages', modifyMessage, performAsyncAction, addMessage);
+
+indexRouter.use('/auth', authRouter);
+indexRouter.use('/pets', petsRouter);
 
 export default indexRouter;
