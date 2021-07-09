@@ -12,7 +12,6 @@ export const getAuthToken = async () => {
       'https://api.petfinder.com/v2/oauth2/token',
       config
     );
-    console.log(response);
     if (response) return response.data;
   } catch (err) {
     return console.error(err.stack);

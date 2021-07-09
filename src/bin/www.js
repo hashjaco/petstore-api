@@ -6,7 +6,6 @@
 
 import http from 'http';
 import app from '../app';
-import { getAuthToken } from '../models/auth.model';
 
 /**
  * Get port from environment and store in Express.
@@ -68,15 +67,6 @@ const onListening = () => {
   const bind = typeof addr === 'string' ? `pipe ${addr}` : `port ${addr.port}`;
   console.log(`Listening on ${bind}`);
 };
-
-(async () => {
-  if (!global.accessToken) {
-    const data = await getAuthToken();
-    global.accessToken = data.access_token;
-  }
-})();
-
-// Test global object
 
 /**
  * Listen for incoming requests at the specified address over provided port,
