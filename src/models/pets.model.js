@@ -24,7 +24,7 @@ export const getOnePet = async (id) => {
       ...config,
       id,
     });
-    if (pet) return pet.data;
+    return pet.data;
   } catch (err) {
     return err;
   }

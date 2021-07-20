@@ -64,8 +64,9 @@ const onError = (error) => {
  * This function simply outputs the port the server is listening on to the console
  * */
 const onListening = () => {
-  const addr = server.address();
-  const bind = typeof addr === 'string' ? `pipe ${addr}` : `port ${addr.port}`;
+  const address = server.address();
+  const bind =
+    typeof address === 'string' ? `pipe ${address}` : `port ${address.port}`;
   console.log(`Listening on ${bind}`);
 };
 
