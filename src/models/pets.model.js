@@ -1,30 +1,22 @@
-import axios from 'axios';
+import { httpClient } from '../app';
 
-const config = {
-  headers: {
-    Authorization: `Bearer ${global.accessToken}`,
-  },
-};
 
 export const getAllPets = async () => {
   try {
-    const pets = await axios.get(
-      'https://api.petfinder.com/v2/animals',
-      config
-    );
-    if (pets) return pets.data;
+    const pets = await httpClient.get('https://api.petfinder.com/v2/animals');
+    if (pets) return pets;
   } catch (err) {
     return err;
   }
 };
 
+
 export const getOnePet = async (id) => {
   try {
-    const pet = await axios.get('https://api.petfinder.com/v2/animals/', {
-      ...config,
-      id,
-    });
-    return pet.data;
+    const pet = await httpClient.get(
+      `https://api.petfinder.com/v2/animals/${id}`
+    );
+    if (pet) return pet;
   } catch (err) {
     return err;
   }
