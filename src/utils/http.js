@@ -5,7 +5,7 @@ export default class HttpClient {
   constructor() {
     this.config = {
       headers: {
-        Authorization: ``,
+        Authorization: '',
       },
     };
 
@@ -40,7 +40,9 @@ export default class HttpClient {
   async post(url) {
     try {
       const data = await axios.post(url, this.config);
-      if (data) return data;
+      if (data) {
+        return data;
+      }
     } catch (err) {
       return err;
     }

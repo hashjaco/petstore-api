@@ -2,13 +2,10 @@ import morgan from 'morgan';
 import helmet from 'helmet';
 import express from 'express';
 import cookieParser from 'cookie-parser';
-import HttpClient from "./utils/http";
-// routes
+import HttpClient from './utils/http';
 import indexRouter from './routes';
 
-
 const app = express();
-
 
 // attach utilities to application
 app.use(morgan('tiny'));

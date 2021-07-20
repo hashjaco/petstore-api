@@ -1,6 +1,5 @@
 import { httpClient } from '../app';
 
-
 export const getAllPets = async () => {
   try {
     const pets = await httpClient.get('https://api.petfinder.com/v2/animals');
@@ -9,7 +8,6 @@ export const getAllPets = async () => {
     return err;
   }
 };
-
 
 export const getOnePet = async (id) => {
   try {
