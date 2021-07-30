@@ -1,9 +1,10 @@
-import * as _ from '../models/pets.model';
+import Pet from '../models/pet.model';
 
-export const getPets = async (req, res, next) => {
+export const getPets = async (req, res) => {
+  const P = new Pet();
   try {
-    const pets = await _.getAllPets();
-    console.log(pets);
+    const pets = await P.all();
+
     return res
       .status(res.statusCode)
       .json({ status: 'success', data: pets.data || 'no data' });
@@ -14,10 +15,11 @@ export const getPets = async (req, res, next) => {
   }
 };
 
-export const getPet = async (req, res, next) => {
+export const getPet = async (req, res) => {
+  const P = new Pet();
   try {
     const { id } = req.params;
-    const pet = await _.getOnePet(id);
+    const pet = await P.find(id);
     return res
       .status(res.statusCode)
       .json({ status: 'success', data: pet.data });
