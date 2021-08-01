@@ -6,6 +6,9 @@ export default class HttpClient {
     this.config = {
       headers: {
         Authorization: '',
+        'X-Content-Type-Options': 'nosniff',
+        'Content-Type': 'text/plain',
+        Accept: 'application/json',
       },
     };
 
